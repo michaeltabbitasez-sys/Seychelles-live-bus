@@ -1,0 +1,61 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#073b4c">
+  <title>Seychelles Live Bus</title>
+  <link rel="manifest" href="manifest.webmanifest">
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header>
+    <div>
+      <div class="eyebrow">PUBLIC TRANSPORT • SEYCHELLES</div>
+      <h1>Live Bus Map</h1>
+    </div>
+    <span id="connection" class="pill offline">Connecting…</span>
+  </header>
+
+  <main>
+    <section class="toolbar">
+      <button id="locateBtn" class="primary">◎ My location</button>
+      <button id="driverToggle">Driver mode</button>
+      <label class="route-label">Island
+        <select id="island">
+          <option value="mahe">Mahé</option>
+          <option value="praslin">Praslin</option>
+          <option value="ladigue">La Digue</option>
+        </select>
+      </label>
+    </section>
+
+    <section id="map" aria-label="Map of Seychelles with bus locations"></section>
+
+    <section class="status-panel">
+      <div class="status-top">
+        <strong id="busCount">0 live buses</strong>
+        <span id="lastUpdated">Waiting for GPS data</span>
+      </div>
+      <p id="emptyState">No live bus GPS feeds are connected yet. Buses will appear here when SPTC shares an authorised feed or participating drivers enable tracking.</p>
+      <div id="vehicleList"></div>
+    </section>
+
+    <section id="driverPanel" class="driver-panel hidden">
+      <h2>Driver GPS sharing</h2>
+      <p>For authorised participating drivers only. Share location during an active shift and only with your employer's approval.</p>
+      <label>Vehicle ID <input id="vehicleId" placeholder="e.g. BUS-012" maxlength="30"></label>
+      <label>Route <input id="routeId" placeholder="e.g. Route 1" maxlength="40"></label>
+      <button id="startDriver" class="primary">Start sharing GPS</button>
+      <button id="stopDriver" class="danger">Stop sharing</button>
+      <p id="driverStatus" class="small">GPS sharing is off.</p>
+    </section>
+
+    <footer>Map © OpenStreetMap contributors · Live positions are shown only when a genuine GPS source is connected.</footer>
+  </main>
+  <script src="config.js"></script>
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
