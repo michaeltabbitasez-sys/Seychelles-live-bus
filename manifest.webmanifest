@@ -1,9 +1,0 @@
-{
-  "name": "Seychelles Live Bus",
-  "short_name": "Live Bus SC",
-  "start_url": "./",
-  "display": "standalone",
-  "background_color": "#f2f6f7",
-  "theme_color": "#073b4c",
-  "icons": []
-}
